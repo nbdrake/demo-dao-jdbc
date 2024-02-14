@@ -27,14 +27,14 @@ public class Program {
 		
 		System.out.println("\n=== TEST 2: seller findByDepartment ===");
 		Department department = new Department(2, null);
-		List<Seller> list = sellerDao.findByDepartment(department);
-		for(Seller obj : list) {
+		List<Seller> sellersList = sellerDao.findByDepartment(department);
+		for(Seller obj : sellersList) {
 			System.out.println(obj);
 		}
 		
 		System.out.println("\n=== TEST 3: seller findAll ===");
-		list = sellerDao.findAll();
-		for(Seller obj : list) {
+		sellersList = sellerDao.findAll();
+		for(Seller obj : sellersList) {
 			System.out.println(obj);
 		}
 		
@@ -50,17 +50,33 @@ public class Program {
 		System.out.println("Update completed!");
 		
 		System.out.println("\n=== TEST 6: seller DELETE ===");
-		System.out.println("Enter the id for delete test: ");
-		int id = sc.nextInt();
-		sellerDao.deleteById(id);
+		System.out.println("Enter the id of the seller for delete test: ");
+		int sellerId = sc.nextInt();
+		sellerDao.deleteById(sellerId);
 		System.out.println("Delete completed!");
 		
 		System.out.println("---DEPARTMENT TESTS---");
 		
-		System.out.println("\n=== TEST 7: seller INSERT ===");
+		System.out.println("\n=== TEST 7: department INSERT ===");
 		Department newDepartment = new Department(null, "Games");
 		departmentDao.insert(newDepartment);
 		System.out.println("Inserted! New id = " + newDepartment.getId());
+		
+		System.out.println("\n === TEST 8: department UPDATE ===");
+		System.out.println("Enter the id of the department for delete test: ");
+		int departmentId = sc.nextInt();
+		departmentDao.deleteById(departmentId);
+		System.out.println("Delete completed!");
+		
+		System.out.println("=== TEST 9: department findById ===");
+		department = departmentDao.findById(3);
+		System.out.println(seller);
+		
+		System.out.println("\n=== TEST 10: department findAll ===");
+		List<Department> departmentList = departmentDao.findAll();
+		for(Department obj : departmentList) {
+			System.out.println(obj);
+		}
 		
 		sc.close();
 	}
